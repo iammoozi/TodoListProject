@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TodoListView: View {
-    @State var todoItem:[TodoModle] = TodoModle.MOCK_DATA
+    @State var todoItem:[TodoModel] = TodoModel.MOCK_DATA
     @State var isPresented: Bool = false
     
     
@@ -23,7 +23,7 @@ struct TodoListView: View {
     
     
     
-    func toggleItem(item: TodoModle){
+    func toggleItem(item: TodoModel){
         if let index = todoItem.firstIndex(where: {
             (originalItem) -> Bool in
             return originalItem.id == item.id

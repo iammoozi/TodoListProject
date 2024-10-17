@@ -7,21 +7,21 @@
 
 import Foundation
 
-struct TodoModle: Identifiable {
+struct TodoModel: Identifiable {
     let id = UUID()
     var title: String
     var isCompleted: Bool = false
 }
 
-extension TodoModle {
-    static var MOCK_DATA:[TodoModle]{
+extension TodoModel{
+    static var MOCK_DATA:[TodoModel]{
         get {
             return [
-                TodoModle(title: "알고리즘 공부하기"),
-                TodoModle(title: "swift5 문법 공부하기"),
-                TodoModle(title: "저녁 식사하기"),
-                TodoModle(title: "런닝"),
-                TodoModle(title: "ios app devlopment"),
+                TodoModel(title: "알고리즘 공부하기"),
+                TodoModel(title: "swift5 문법 공부하기"),
+                TodoModel(title: "저녁 식사하기"),
+                TodoModel(title: "런닝"),
+                TodoModel(title: "ios app devlopment"),
             ]
         }
     }

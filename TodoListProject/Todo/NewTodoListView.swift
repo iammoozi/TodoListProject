@@ -10,11 +10,11 @@ import SwiftUI
 struct NewTodoListView: View {
     
     @State var newTodoListTitle: String = ""
-    @Binding var todoItem: TodoModle
-    @Binding var $isPresented: Bool
+    @Binding var todoItem: [TodoModel]
+    @Binding var isPresented: Bool
     
     func addItem(title: String){
-        let newItem = TodoModle(title: title)
+        let newItem = TodoModel(title: title)
         todoItem.append(newItem)
     }
     
