@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TodoListView: View {
-    @State var todoItem:[TodoModel] = TodoModel.MOCK_DATA
+    @State var todoItem:[TodoModel] = []
     @State var isPresented: Bool = false
     
     
@@ -53,12 +53,16 @@ struct TodoListView: View {
                                 }
                             }
                         }
+                        .onDelete(perform: removeItem)
+                        .onMove(perform: moveItem)
                     }
                     Section("완료 목록"){
                         ForEach(todoItem) { item in
                             if item.isCompleted{
                                 HStack{
                                     Text(item.title)
+                                        .foregroundColor(Color(.systemGray3))
+                                        .strikethrough()
                                     Spacer()
                                     Image(systemName: item.isCompleted
                                           ? "checkmark.circle.fill" : "circle")
@@ -72,7 +76,10 @@ struct TodoListView: View {
                                 }
                             }
                         }
+                        .onDelete(perform: removeItem)
+                        .onMove(perform: moveItem)
                     }
+                    
                     
                 }
                 .listStyle(PlainListStyle())
