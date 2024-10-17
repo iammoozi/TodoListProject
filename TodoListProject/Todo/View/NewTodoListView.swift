@@ -4,20 +4,12 @@
 //
 //  Created by 김재윤 on 10/17/24.
 //
-
+// 새롭게 만들어진 투두를 제외하고는 추가적으로 관리하는 데이터,로직 없음
 import SwiftUI
 
 struct NewTodoListView: View {
-    
-    @State var newTodoListTitle: String = ""
-    @Binding var todoItem: [TodoModel]
-    @Binding var isPresented: Bool
-    
-    func addItem(title: String){
-        let newItem = TodoModel(title: title)
-        todoItem.append(newItem)
-    }
-    
+    @StateObject var viewModel: TodoListViewModel
+    @State private var newTodoListTitle: String = ""
     
     var body: some View {
         VStack{
@@ -36,9 +28,9 @@ struct NewTodoListView: View {
             }
             .padding([.top],30)
             Button("완료"){
-                addItem(title: newTodoListTitle)
+                viewModel.addItem(title: newTodoListTitle)
                 newTodoListTitle = ""
-                isPresented.toggle()
+                viewModel.isPresented.toggle()
             }
             .frame(width: 200, height: 30)
             .padding()
